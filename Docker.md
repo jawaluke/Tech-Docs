@@ -4,6 +4,8 @@ DOCKER :
 
 Docker Architecture:
 
+        Traditional architecture of virtualization.
+ 
           APP       APP        ---> host our application on top of the each Guest OS
         Guest OS   GUEST OS    ---> multiple OS is installed as a virtual machine on top of the hypervisor as a Guest OS
                 |  
@@ -14,4 +16,17 @@ Docker Architecture:
               Server           ---> Physical server to host multiple virtual machines
 
 
-        
+        Docker architecture of virtualization.
+
+
+        DOCKER       DOCKER
+        Container    container
+                  |
+             Docker Engine
+                  |  
+               HOST OS
+                  | 
+                Server
+    
+    Advantage:
+        You don't need to have a extra hardware for guest OS now everything run as a docker container.
