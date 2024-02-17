@@ -49,14 +49,35 @@ Installing Typescript Compiler:
 Typescript simple types: 
 
 
-	before that diff, primitive and non-primitive data type:
+	before that diff, PRIMITIVE and NON-PRIMITIVE data type:
 		primitive - pre-defined by programming language like size and type of variable values are specified i.e.. no additional method
 		non- primitive - not defined by programming language but created by programmer
 
 
 	- simple primitive type in typescript and javascript
-		number, boolean, string
-		bigInt, symbols - latest primitive types
+		number, boolean, string.
+		bigInt, symbols - latest primitive types.
+		null, undefined
+
+	- non - primitive type
+		object, function, Array, Tuple, Enum, Set, Class
+
+	Main Diff bet Primitive and non-primitive :
+		- how they stored in memory.
+
+		- Primitive are stored by value that means each variable hold the copy of actual value.
+		- Non Primitive are stored by reference that means each variable hold the pointer to the location of value in memory.
+			eg:
+			    -When comparing primitive types, the equality operator (==) checks if the values are the same. When comparing non-primitive types, the equality operator checks if the references are the same, not the values.
+
+			let a: number = 10; // a primitive type
+			let b: number = 10; // a primitive type
+			console.log(a == b); // true, because the values are the same
+
+			let c: object = { x: 1 }; // a non-primitive type
+			let d: object = { x: 1 }; // a non-primitive type
+			console.log(c == d); // false, because the references are different
+
 
 	Type Assignment:
 		-- simple word: Assigning a type to a variable.
@@ -223,13 +244,60 @@ Typescript Special Types:
 	null - special value in typescript.
 
 		
+	never: 
+		-it represent a type of value that never occur.
+		- Function that do not have reachable endpoint or variable that cannot have value.
+
+		eg:
+			function that always throw an Error
+			function that return a never type
+
+		
+		function takesThrowError(whichError: number) :never {
+  
+ 			 switch(whichError) {
+    				case 1:
+        				throw new Error("Case 1 error..")
+   			 	case 2:
+        				throw new Error("Case 2 error..")
+    				case 3:
+        				throw new Error("Case 3 error..")   
+    				default:
+        				throw new Error("default error...") 
+  			}
+		}
+
+		
+		takesThrowError(5)
 
 
 
 
+	Diff between never and void: 
+		void  - used for function that do not return any value
+			we can assign undefined to void type but not void to undefined
+			let g:void = undefined --> (correct)  let g: undefined = (void function) --> (wrong)
+									let g: void; let h: number = g --> (wrong).
 
+			void can be used as return type for function that returns undefined.
 
+				function onlyVoid() : void {
+ 					 console.log("void function")
+  					 return undefined;
+				}
+	
+		
+		never - used for function that never return at all.
+			- never convey the meaning of a function that
+			- you cannot expect a value from the function either it will throw an error or run infinity loop
+			- never is a subtype of all the types.
 
+			let g: number = (never function) --> correct
+			let g: string = (never function) --> correct
+									let g!: never; let h: number = g --> correct
+				but not viceversa..
+			let g: never = "frghj" --> wrong
+			let g: never = (number function) --> wrong
 
 
 
@@ -282,3 +350,121 @@ var ans = addAgewithTen(age as number);
 
 console.log(ans)
 
+
+
+
+
+
+
+
+// Type Example
+function getIndex(index: number, arr: (string | number | boolean | object)[]): string|number|boolean| object {
+    return arr[index];
+}
+
+
+console.log(getIndex(2,["hello","hi","morning","star"]))
+console.log(getIndex(2,[2,4,6,8,0]))
+console.log(getIndex(2,[true, false, true, false]))
+console.log(getIndex(2,[{name: "jaw"}, {name: "fie"}, {name: "ram"}]))
+
+// Genric Example
+
+function getIndexs<Type>(index: number, arr: Type[]): Type {
+    return arr[index];
+}
+
+
+console.log(getIndexs(2,["hello","hi","morning","star"]))
+console.log(getIndexs(2,[2,4,6,8,0]))
+console.log(getIndexs(2,[true, false, true, false]))
+console.log(getIndexs(2,[{name: "jaw"}, {name: "fie"}, {name: "ram"}]))
+
+
+
+
+var age: unknown;
+age = "23"
+console.log("value :",age," type: ",typeof age)
+
+function addAgewithTen(age: number): number {
+    console.log("value :",age," type: ",typeof age)
+    if( typeof age == 'number' && !isNaN(age)) {
+        return age + 10;
+    }
+    if( typeof age == 'string' && !isNaN(age)) {
+        return addAgewithTen(parseInt(age))
+    }
+    throw new Error("not a valid value")
+}
+
+var ans = addAgewithTen(age as number);
+
+console.log(ans)
+
+
+
+
+
+
+
+
+Typescript Array or list:
+
+what is list:  	list or array is a data structure which allow us to store and manipulate a collection of element with same type.
+		it is an ordered list of values where value can be accessed through index.
+		typescript array is essential part of language because they provide a convinent way to work with collection of data.
+
+Array Declare: two ways
+		1) []-> square bracket, let arr: number[];  let fruits: string[] = ['apple', 'orange', 'banana'];
+		2) Generic Array type, let arr: Array<number>; let fruit: Array<string> = ['apple', 'orange', 'banana'];
+
+
+var fr: unknown = 90
+var juiceOption: (string | number | boolean)[] = new Array("apple", "orange", "melon", "orange");
+
+juiceOption[9] = ''
+
+juiceOption.push(12)
+juiceOption.push(true)
+juiceOption[7] = (fr as (number));
+
+// ways to remove an element
+
+juiceOption.shift()
+console.log("shift: ",juiceOption);
+
+juiceOption.pop()
+console.log("pop: ",juiceOption);
+
+juiceOption.splice(juiceOption.indexOf("orange"),1);
+console.log("splice: ",juiceOption);
+
+juiceOption = juiceOption.filter((val) => { if(val===90){return false;} else{return true;}});
+console.log("filter: ",juiceOption);
+
+
+		
+
+Tuple:
+
+ --> Tuple is a typed array with predefined length and types for each index.
+ --> Order matters in tuple. why see example
+
+ --> To Create :
+	- Specify the type of each element in the array.
+
+	arr: [string,number,string] = ["hello", 2, "bye"]
+	
+	arr: [string,number,string] = ["hello", 2, 2] // error due to unmatched type for index 2
+	arr: [string,number,string] = ["hello", 2, "bye", true] // error due to unmatched type for index 3
+
+	but,
+	disadvantage: no type safety in our tuple if we use array methods.
+
+	arr: [string,number,string] = ["hello", 2, "bye"]
+	arr.pop()
+	arr.push(2)
+	// it works for the array operation without any error.
+
+	
