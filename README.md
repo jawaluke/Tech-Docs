@@ -7,7 +7,7 @@
 1) [ Setup Node Application with Typescript ](<Node+TypeScript+Nodemon - Config setup/setup.md>)
 
 ## Angular Docs
-1) [ understanding routing in Angular ](</Angular routing notes.md>).
+1) [ Understanding routing in Angular ](</Angular routing notes.md>).
 
 ## Typescript Docs
 
