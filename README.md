@@ -10,3 +10,4 @@
 ## Typescript Docs
 
 1) [ TypeScript Learning points ](<Typescript learning points.txt>)
+2) [ writing unit test with Jest in typescript](<TypeScript-Code-UnitTest-with-Jest/Jest_install_guide.md>)
