@@ -4,4 +4,4 @@
 
 ## NodeJs Docs
 
-[ Setup Node Application with Typescript ]('Node+TypeScript+Nodemon-Configsetup'/setup.md)
+1) [ Setup Node Application with Typescript ](<Node+TypeScript+Nodemon - Config setup/setup.md>)
