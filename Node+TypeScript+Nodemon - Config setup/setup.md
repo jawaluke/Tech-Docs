@@ -1,5 +1,5 @@
 
-# How to Setup a TypeScript + Node.js Project.
+# How to Setup a TypeScript + Node Project.
 
 ## Setup a Node Project.
 Create a Directory/folder with project name.
