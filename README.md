@@ -6,8 +6,11 @@
 
 1) [ Setup Node Application with Typescript ](<Node+TypeScript+Nodemon - Config setup/setup.md>)
 
+## Angular Docs
+1) [ understanding routing in Angular ](</Angular routing notes.md>).
 
 ## Typescript Docs
 
 1) [ TypeScript Learning points ](<Typescript learning points.txt>)
 2) [ Writing unit test with Jest in typescript](<TypeScript-Code-UnitTest-with-Jest/Jest_install_guide.md>)
+
