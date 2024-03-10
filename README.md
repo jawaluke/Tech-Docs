@@ -5,6 +5,7 @@
 ## NodeJs Docs
 
 1) [ Setup Node Application with Typescript ](<Node+TypeScript+Nodemon - Config setup/setup.md>)
+2) [ Setup Environment_file_with_Node Application Typescript ](<Node+Typescript+Config - how to setup environment files/config-setup.md>)
 
 ## Angular Docs
 1) [ Understanding routing in Angular ](</Angular routing notes.md>).
