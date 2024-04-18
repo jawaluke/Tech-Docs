@@ -1,20 +1,28 @@
-# Design Pattern:
-###    - In software Engineering, Design pattern is a general repeatable solution to commonly occuring problem in Software Design.
-###    - Design pattern isn't a finished design that can directly transform into code. it is a description or Template on how to solve a problem that can be used in many different situations.
+## Design Pattern
+**- In software Engineering, Design pattern is a general repeatable solution to commonly occuring problem in Software Design.**
+
+**- Design pattern isn't a finished design that can directly transform into code. it is a description or Template on how to solve a problem that can be used in many different situations.**
+
 ### Uses:
-###    - Code Readability.
-###    - It can speed up development process by providing testen and proven development paradigms.
+- Code Readability.
+- It can speed up development process by providing testen and proven development paradigms.
 
 ## Creational Design Pattern:
-###    - This pattern is all about class instantiation.
+**- This pattern is all about class instantiation.**
 
 ## Singleton:
-###    - Object can only be instantiated once.
-###    - Useful for global Object that accessed from anywhere in the application.
+**- Object can only be instantiated once.**
+
+**- Useful for global Object that accessed from anywhere in the application.**
+
+### Example(Real use):
+- JDBC connection to database (we don't want create class everytime on each service).
+  
 
 ### Code: 
-#### - make constructor as a private to prevent new object
-#### - Don't forget to use 'static'.
+- make constructor as a private to prevent new object
+- Don't forget to use 'static' member.
+- use static method to get instance.
 
 ```
 #Typescript
